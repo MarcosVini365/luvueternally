@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="style.css">
+<style>
+
+
+</style>
+<body>
+  <div class="falling-heart"></div>
+  
+  <div class="w3-content w3-display-container">
+  <img class="mySlides w3-animate-top w3-image" src="img/amor1.jpeg">
+  <img class="mySlides w3-animate-top" src="img/amor2.jpeg">
+  <img class="mySlides w3-animate-top" src="img/amor3.jpeg">
+  <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:100%">
+    <div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
+    <div class="w3-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
+    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
+    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
+    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
+  </div>
+</div>
+
+<div class="card-base">
+    <div class="w3-card" id="anos">Anos: 0</div>
+    <div class="w3-card" id="meses">Meses: 0</div>
+    <div class="w3-card" id="dias">Dias: 0</div>
+    <div class="w3-card" id="horas">Horas: 0</div>
+    <div class="w3-card" id="minutos">Minutos: 0</div>
+    <div class="w3-card" id="segundos">Segundos: 0</div>
+</div>
+
+<div>
+    <div class="w3-container w3-light-grey." id="texto">
+        <h1 style="text-shadow:1px 1px 0 #444">Lorem ipsum dolor sit amet consectetur adipiscing elit diam, maximus felis leo ornare a blandit</h1>
+        <h2 style="text-shadow:1px 1px 0 #444">Lorem ipsum dolor sit amet consectetur adipiscing elit diam, maximus felis leo ornare a blandit</h2>
+    </div>
+</div>
+
+<script>
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function currentDiv(n) {
+  showDivs(slideIndex = n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" w3-white", "");
+  }
+  x[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " w3-white";
+}
+</script>
+
+<script>
+  const dataInicio = new Date('2024-11-03T22:50:00');
+
+  function atualizaContador(){
+    const hoje = new Date();
+    let resultado = hoje - dataInicio;
+
+    const anos = Math.floor(resultado / (1000 * 60 * 60 * 24 * 365));
+    resultado -= anos * (1000 * 60 * 60 * 24 * 365);
+
+    const meses = Math.floor(resultado / (1000 * 60 * 60 * 24 * 30)); // Considerando 30 dias por mês
+    resultado -= meses * (1000 * 60 * 60 * 24 * 30);
+
+    const dias = Math.floor(resultado / (1000 * 60 * 60 * 24));
+    resultado -= dias * (1000 * 60 * 60 * 24);
+
+    const horas = Math.floor(resultado / (1000 * 60 * 60));
+    resultado -= horas * (1000 * 60 * 60);
+
+    const minutos = Math.floor(resultado / (1000 * 60));
+    resultado -= minutos * (1000 * 60);
+
+    const segundos = Math.floor(resultado / 1000);
+
+    document.getElementById("anos").innerText = `Anos: ${anos}`;
+    document.getElementById("meses").innerText = `Meses: ${meses}`;
+    document.getElementById("dias").innerText = `Dias: ${dias}`;
+    document.getElementById("horas").innerText = `Horas: ${horas}`;
+    document.getElementById("minutos").innerText = `Minutos: ${minutos}`;
+    document.getElementById("segundos").innerText = `Segundos: ${segundos}`;
+  }
+
+  setInterval(atualizaContador, 1000);
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const numHearts = 30;  // Quantidade de corações
+
+    for (let i = 0; i < numHearts; i++) {
+        let heart = document.createElement('div');
+        heart.classList.add('falling-heart');
+        heart.style.left = `${Math.random() * 100}vw`;  // Posição aleatória no eixo X
+        heart.style.animationDuration = `${Math.random() * 2 + 3}s`;  // Duração aleatória para a animação
+        heart.style.animationDelay = `${Math.random() * 2}s`;  // Atraso aleatório para a animação
+        document.body.appendChild(heart);
+    }
+});
+</script>
+
+</body>
+</html> 

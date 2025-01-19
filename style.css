@@ -1,0 +1,72 @@
+* {
+    box-sizing: border-box;
+}
+
+body{
+    background: linear-gradient(200deg, rgba(0,0,0,1) 0%, rgba(29,2,36,1) 100%);
+    background-attachment: fixed;
+    color: white;
+}
+.w3-content{
+    display: flex;
+    justify-content: center;
+    max-width: 30%;
+    min-width: 40vw; 
+    height: 600px; 
+    padding-top: 30px;
+}
+.mySlides {
+    display:none; 
+    height: 100%;
+}
+.w3-left, .w3-right, .w3-badge {cursor:pointer}
+.w3-badge {height:13px;width:13px;padding:0}
+.card-base{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+    padding: 1rem;
+}
+.w3-card{
+    width: 150px;
+    height: 50px; 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    border: 3px solid white;
+    border-radius: 10px;
+    margin: 10px;
+}
+#texto{text-align: center;}
+
+
+.falling-heart {
+    position: absolute;
+    top: -50px; /* Começa fora da tela */
+    width: 30px;
+    height: 30px;
+    background-image: url('img/red-heart-icon.png'); /* Coração em formato SVG */
+    background-size: cover;
+    animation: fall 3s infinite linear;
+}
+
+@keyframes fall {
+    0% {
+        top: -50px;
+        opacity: 1;
+    }
+    100% {
+        top: 90vh; /* Atinge o final da tela */
+        opacity: 0;
+    }
+}
+
+@media (max-width: 1000px) {
+    .w3-content{
+        max-width: 70%;
+    }
+}
