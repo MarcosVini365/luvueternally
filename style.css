@@ -67,6 +67,7 @@ body{
 
 @media (max-width: 1000px) {
     .w3-content{
-        max-width: 70%;
+        max-width: 90%;
+        height: 500px;
     }
 }
