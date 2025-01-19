@@ -3,8 +3,11 @@
 }
 
 body{
-    background: linear-gradient(200deg, rgba(0,0,0,1) 0%, rgba(29,2,36,1) 100%);
+    /*background: linear-gradient(200deg, rgba(0,0,0,1) 0%, rgba(29,2,36,1) 100%);*/
+    background-image: url(img/back.jpg);
     background-attachment: fixed;
+    background-size: 70rem;
+    background-repeat: no-repeat;
     color: white;
 }
 .w3-content{
