@@ -7,7 +7,6 @@ body{
     background-image: url(img/back.jpg);
     background-attachment: fixed;
     background-size: 70rem;
-    background-repeat: no-repeat;
     color: white;
 }
 .w3-content{
