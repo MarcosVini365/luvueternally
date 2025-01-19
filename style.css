@@ -70,4 +70,7 @@ body{
         max-width: 90%;
         height: 500px;
     }
+    .card-base{
+        margin: 0px
+    }
 }
