@@ -1,13 +1,9 @@
-html{display: none;}
 * {
     box-sizing: border-box;
     
 }
 
 body{
-    display: none;
-    width: 0px;
-    height: 0px;
     /*background: linear-gradient(200deg, rgba(0,0,0,1) 0%, rgba(29,2,36,1) 100%);*/
     background-image: url(img/back.jpg);
     background-color: rgb(30, 38, 55);
@@ -98,6 +94,7 @@ h1, h2, h3, h4, h5, h6  {
     color: #ffffff;
     font-weight: bold;
     box-shadow: 12px 5px 8px 0 rgba(0, 0, 0, 0.2), 2px -3px 20px 0 rgba(0, 0, 0, 0.19);
+    font-family: cursive;
 }
 #texto{text-align: center;}
 
