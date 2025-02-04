@@ -13,10 +13,6 @@ body{
     background-blend-mode: overlay;
 }
 
-h1, h2, h3, h4, h5, h6  {
-    font-family: cursive;
-}
-
 .hidden {
     display: none;
 }
@@ -94,7 +90,6 @@ h1, h2, h3, h4, h5, h6  {
     color: #ffffff;
     font-weight: bold;
     box-shadow: 12px 5px 8px 0 rgba(0, 0, 0, 0.2), 2px -3px 20px 0 rgba(0, 0, 0, 0.19);
-    font-family: cursive;
 }
 #texto{text-align: center;}
 
