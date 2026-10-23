@@ -1,133 +1,307 @@
+
 * {
     box-sizing: border-box;
-    
+    margin: 0;
+    padding: 0;
 }
 
-body{
-    /*background: linear-gradient(200deg, rgba(0,0,0,1) 0%, rgba(29,2,36,1) 100%);*/
-    background-image: url(img/back.jpg);
-    background-color: rgb(30, 38, 55);
-    background-attachment: scroll;
-    background-size: cover;
-    color: white;
-    background-blend-mode: overlay;
+:root {
+    --bg-color: #080405;
+    --accent-red: #dc2626;
+    --card-bg: rgba(20, 10, 12, 0.7);
+    --text-white: #ffffff;
+    --text-muted: #a1a1aa;
+    --border-red: rgba(220, 38, 38, 0.3);
 }
 
-.hidden {
-    display: none;
+body {
+    background-color: var(--bg-color);
+    color: var(--text-white);
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    overflow-x: hidden;
+    padding-bottom: 110px; /* Espaço para o player de música full-width */
+    position: relative;
 }
 
-#loadingScreen{
+/* Estilo das Imagens Caindo */
+.coracao {
+  position: absolute;
+  top: -50px;
+  background-size: cover;
+  animation: cair linear forwards;
+  z-index: 9999;
+}
+
+@keyframes cair {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(105vh) rotate(360deg);
+    opacity: 0.2;
+  }
+}
+
+/* Efeito Blush/Glow de Fundo Otimizado */
+.bg-blush {
     position: fixed;
-    top: 0;
-    left: 0;
+    border-radius: 50%;
+    filter: blur(90px);
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.25;
+    will-change: transform;
+}
+
+.blush-1 {
+    width: 380px;
+    height: 380px;
+    background: var(--accent-red);
+    top: -100px;
+    left: -100px;
+}
+
+.blush-2 {
+    width: 450px;
+    height: 450px;
+    background: #7f1d1d;
+    bottom: 50px;
+    right: -120px;
+}
+
+.main-container {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 15px 20px 15px;
+    z-index: 1;
+}
+
+/* Título Branco Limpo sem efeitos */
+.title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3.8rem;
+    font-weight: 400;
+    color: var(--text-white);
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* Estrutura do Carrossel baseado no padrão importado */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1200px;
+    user-select: none;
+    touch-action: pan-y;
+    cursor: grab;
+}
+
+.carousel-container:active {
+    cursor: grabbing;
+}
+
+.carousel-item {
+    position: absolute;
+    width: 350px;
+    height: 460px;
+    border-radius: 20px;
+    border: 3px solid #ffffff; /* Borda branca mantida */
+    box-shadow: none;           /* Sem sombra conforme solicitado */
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease, filter 0.4s ease;
+    will-change: transform, opacity, filter;
+    background-color: #000000;
+}
+
+.carousel-item img {
     width: 100%;
     height: 100%;
-    background-color: rgb(247, 183, 238); /* Fundo semi-transparente */
+    object-fit: cover;
+    pointer-events: none;
+}
+
+/* Parágrafo Centralizado */
+.description-text {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    text-align: center;
+    max-width: 600px;
+    line-height: 1.6;
+    margin: 30px 0 35px 0;
+    font-weight: 300;
+}
+
+.description-text > a {
+    color: var(--text-muted);
+}
+
+/* Timer em Grid 3x2 */
+.timer-section {
+    width: 100%;
+    max-width: 580px;
+    margin-bottom: 30px;
+}
+
+.timer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.timer-block {
+    background: var(--card-bg);
+    border: 1px solid var(--border-red);
+    border-radius: 12px;
+    padding: 16px 8px;
+    text-align: center;
+    backdrop-filter: blur(8px);
+}
+
+.timer-value {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--text-white); /* Letras Brancas */
+    line-height: 1;
+    margin-bottom: 6px;
+    font-variant-numeric: tabular-nums;
+}
+
+.timer-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-white); /* Letras Brancas */
+    font-weight: 500;
+    opacity: 0.85;
+}
+
+/* Rodapé Minimalista */
+.footer-text {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-top: 10px;
+    padding-bottom: 20px;
+}
+
+/* Popup Player de Música Full Width */
+.music-player-popup {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 70px;
+    background: rgba(12, 6, 8, 0.9);
+    border-top: 1px solid var(--border-red);
+    backdrop-filter: blur(12px);
+    z-index: 100;
     display: flex;
-    justify-content: center;
     align-items: center;
-    color: white;
+    justify-content: space-between;
+    padding: 0 24px;
+}
+
+.player-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.album-cover {
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    background: #1e1114;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border-red);
+    flex-shrink: 0;
+}
+
+.album-cover svg {
+    width: 22px;
+    height: 22px;
+    fill: var(--accent-red);
+}
+
+.track-info {
+    display: flex;
     flex-direction: column;
-    z-index: 1000; /* Garantir que fique acima de outros conteúdos */
-    opacity: 1; /* Opacidade inicial (visível) */
-    transition: opacity 2s ease /* Transição de opacidade e visibilidade */
 }
 
-/* Animação de carregamento (círculo giratório) */
-.loader {
-    border: 8px solid #f3f3f3; /* Cor do fundo */
-    border-top: 8px solid #3498db; /* Cor do círculo giratório */
+.track-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-white);
+}
+
+.track-artist {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+.player-controls {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.play-btn {
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    animation: spin 2s linear infinite;
-}
-
-/* Animação de rotação do loader */
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-.w3-content{
-    display: flex;
-    justify-content: center;
-    max-width: 30%;
-    min-width: 40vw; 
-    height: 500px; 
-    padding-top: 30px;
-}
-.mySlides {
-    display:none; 
-    height: 100%;
-    box-shadow: 12px 12px 8px 0 rgb(0 0 0 / 35%), 14px 9px 20px 0 rgba(0, 0, 0, 0.19);
-}
-.w3-left, .w3-right, .w3-badge {
-    cursor:pointer;
-    font-size: 2rem;
-}
-.w3-badge {height:13px;width:13px;padding:0}
-.card-base{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-    margin: 1rem;
-    padding: 1rem;
-}
-.w3-card{
-    width: 9rem;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 3px solid #ffffff00;
-    margin: 10px;
-    background-color: #2f2f2f87;
+    background: var(--accent-red);
+    border: none;
     color: #ffffff;
-    font-weight: bold;
-    box-shadow: 12px 5px 8px 0 rgba(0, 0, 0, 0.2), 2px -3px 20px 0 rgba(0, 0, 0, 0.19);
-}
-#texto{text-align: center;}
-
-
-.falling-heart {
-    position: absolute;
-    top: -50px; /* Começa fora da tela */
-    width: 30px;
-    height: 30px;
-    background-image: url('img/red-heart-icon.png'); /* Coração em formato SVG */
-    background-size: cover;
-    animation: fall 3s infinite linear;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
-h2{
-    font-size: 1.5rem;
-    margin-top: 2rem;
-    margin-bottom: 0px;
+.play-btn:hover {
+    transform: scale(1.06);
+    background-color: #ef4444;
 }
 
+.play-btn svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+}
 
-@keyframes fall {
-    0% {
-        top: -50px;
-        opacity: 1;
+/* Responsividade Mantida */
+@media (max-width: 640px) {
+    .carousel-container {
+    height: 400px;
     }
-    100% {
-        top: 90vh; /* Atinge o final da tela */
-        opacity: 0;
+    .carousel-item {
+    width: 280px;
+    height: 368px;
     }
-}
-
-@media (max-width: 1000px) {
-    .w3-content{
-        max-width: 90%;
-        height: 400px;
+    .title {
+    font-size: 3rem;
     }
-    .card-base{
-        margin: 0px
+    .timer-value {
+    font-size: 1.6rem;
+    }
+    .timer-label {
+    font-size: 0.65rem;
     }
 }

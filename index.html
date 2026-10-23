@@ -1,93 +1,86 @@
 <!DOCTYPE html>
-<html>
-<title>Love Date</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="style.css">
-<script src="scripts/controler.js"></script>
-<script src="scripts/date.js"></script>
-<script src="scripts/heart.js"></script>
-<script src="scripts/looding.js"></script>
-<link rel="shortcut icon" href="img/wedding-date.png" type="image/x-icon">
+<html lang="pt-BR">
+<head>
+  <title>Love Date</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="img/wedding-date.png" type="image/x-icon">
+</head>
 <body>
-  
-  <!-- Tela de Loading -->
-  <div id="loadingScreen" class="hidden">
-      <div class="loader"></div>
-      <p>Carregando...❤️</p>
-  </div>
+  <div class="bg-blush blush-1"></div>
+  <div class="bg-blush blush-2"></div>
 
+  <main class="main-container">
+    <!-- Título -->
+    <h1 class="title">Vinicius e Viviane</h1>
 
-  <div class="falling-heart"></div>
-  
-  <div class="w3-content w3-display-container">
-  <img class="mySlides w3-animate-opacity" src="img/amor/amor1.jpeg">
-  <img class="mySlides w3-animate-opacity" src="img/amor/amor2.jpeg">
-  <img class="mySlides w3-animate-opacity" src="img/amor/amor3.jpeg">
-  <img class="mySlides w3-animate-opacity" src="img/amor/amor4.jpeg">
-  <img class="mySlides w3-animate-opacity" src="img/amor/amor5.jpeg">
-  <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:100%">
-    <div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
-    <div class="w3-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
-    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
-    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
-    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
-    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(4)"></span>
-    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(5)"></span>
-  </div>
-</div>
-
-<div class="w3-container" id="texto">
-  <h2>Estamos juntos há:</h2>
-</div>
-
-<div class="card-base">
-    <div class="w3-card" id="anos">0 Anos</div>
-    <div class="w3-card" id="meses">0 Meses</div>
-    <div class="w3-card" id="dias">0 Dias</div>
-    <div class="w3-card" id="horas">0 Horas</div>
-    <div class="w3-card" id="minutos">0 Minutos</div>
-    <div class="w3-card" id="segundos">0 Segundos</div>
-</div>
-
-<div>
-    <div class="w3-container w3-light-grey." id="texto">
-        <h1 style="text-shadow:1px 1px 0 #444">Vinicius❤️Viviane</h1>
-        <p>________________________________</p>
-        <h2 style="text-shadow:1px 1px 0 #444" class="w3-container">Amor,
-          <br>você é doce, linda, inteligente, forte <br>Sem duvidas "o seu valor muito excede ao de rubis."( <a href="https://www.bibliaon.com/versiculo/proverbios_31_10/" target="_blank">Provérbios 31:10.</a> )<br>Cada dia ao seu lado é um presente, e você torna a minha vida infinitamente melhor.
-          <br>Eu oro todos os dias para que, em um futuro próximo,<br>eu não te chame mais de namorada, mas sim de minha esposa, com todo o amor que você merece.</h2>
-          <h1>Eu te amo❤️</h1>
+    <!-- Carrossel -->
+    <div class="carousel-container" id="carouselContainer">
+      <!-- Injetado via Javascript -->
     </div>
-</div>
 
-<script>
-var slideIndex = 1;
-showDivs(slideIndex);
+    <!-- Texto -->
+    <p class="description-text">
+      Amor<br>você é doce, linda, inteligente, forte <br>Sem duvidas "o seu valor muito excede ao de rubis." (<a href="https://www.bibliaon.com/versiculo/proverbios_31_10/" target="_blank">Provérbios 31:10</a>)<br>Cada dia ao seu lado é um presente, e você torna a minha vida infinitamente melhor.
+      <br>Eu oro todos os dias para que, em um futuro próximo,<br>eu não te chame mais de namorada, mas sim de minha esposa, com todo o amor que você merece.
+    </p>
 
-function plusDivs(n) {
-  showDivs(slideIndex += n);
-}
+    <!-- Timer -->
+    <section class="timer-section">
+      <div class="timer-grid">
+        <div class="timer-block">
+          <div class="timer-value" id="years">00</div>
+          <div class="timer-label">Anos</div>
+        </div>
+        <div class="timer-block">
+          <div class="timer-value" id="months">00</div>
+          <div class="timer-label">Meses</div>
+        </div>
+        <div class="timer-block">
+          <div class="timer-value" id="days">00</div>
+          <div class="timer-label">Dias</div>
+        </div>
+        <div class="timer-block">
+          <div class="timer-value" id="hours">00</div>
+          <div class="timer-label">Horas</div>
+        </div>
+        <div class="timer-block">
+          <div class="timer-value" id="minutes">00</div>
+          <div class="timer-label">Minutos</div>
+        </div>
+        <div class="timer-block">
+          <div class="timer-value" id="seconds">00</div>
+          <div class="timer-label">Segundos</div>
+        </div>
+      </div>
+    </section>
 
-function currentDiv(n) {
-  showDivs(slideIndex = n);
-}
+    <!-- Footer -->
+    <footer class="footer-text">
+      Feito com ❤️
+    </footer>
+  </main>
 
-function showDivs(n) {
-var i;
-var x = document.getElementsByClassName("mySlides");
-var dots = document.getElementsByClassName("demo");
-if (n > x.length) {slideIndex = 1}
-if (n < 1) {slideIndex = x.length}
-for (i = 0; i < x.length; i++) {
-  x[i].style.display = "none";  
-}
-for (i = 0; i < dots.length; i++) {
-  dots[i].className = dots[i].className.replace(" w3-white", "");
-}
-x[slideIndex-1].style.display = "block";  
-dots[slideIndex-1].className += " w3-white";
-}
-</script>
+  <!-- Popup Player-->
+  <div class="music-player-popup">
+    <div class="player-left">
+      <div class="album-cover">
+        <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+      </div>
+      <div class="track-info">
+        <span class="track-title">Música de Fundo</span>
+        <span class="track-artist">Áudio Ambiente</span>
+      </div>
+    </div>
+    <div class="player-controls">
+      <button class="play-btn" id="playBtn" aria-label="Play/Pause">
+        <svg id="playIcon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </button>
+    </div>
+  </div>
+  <script src="scripts/script.js"></script>
 </body>
-</html> 
+</html>
