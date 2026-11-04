@@ -31,7 +31,7 @@ body {
 /* Estilo das Imagens Caindo */
 .coracao {
   position: absolute;
-  top: -50px;
+  top: -100px;
   background-size: cover;
   animation: cair linear forwards;
   z-index: 9999;
