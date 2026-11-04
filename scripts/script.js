@@ -184,7 +184,7 @@ updateTimer();
 // ========
 // PLAYER
 // ========
-const AUDIO_SRC = 'assets/Miller - Congratulations feat. Bilal (No Intro) - J.mp3'; 
+const AUDIO_SRC = 'img/Miller - Congratulations feat. Bilal (No Intro) - J.mp3'; 
 
 const playBtn = document.getElementById('playBtn');
 const playIcon = document.getElementById('playIcon');
