@@ -4,16 +4,16 @@ const TARGET_DATE = new Date('2024-11-03T00:00:00');
 // CARROSSEL
 // ==========================================
 const photosArr = [
-    "../img/amor/amor1.jpeg",
-    "../img/amor/amor2.jpg",
-    "../img/amor/amor3.jpeg",
-    "../img/amor/amor4.jpeg",
-    "../img/amor/amor5.jpeg",
-    "../img/amor/amor6.jpeg",
-    "../img/amor/amor7.jpg",
-    "../img/amor/amor8.jpg",
-    "../img/amor/amor9.jpg",
-    "../img/amor/amor10.jpg",
+    "img/amor/amor1.jpeg",
+    "img/amor/amor2.jpg",
+    "img/amor/amor4.jpeg",
+    "img/amor/amor3.jpeg",
+    "img/amor/amor5.jpeg",
+    "img/amor/amor6.jpeg",
+    "img/amor/amor7.jpg",
+    "img/amor/amor8.jpg",
+    "img/amor/amor9.jpg",
+    "img/amor/amor10.jpg",
 ];
 
 const container = document.getElementById('carouselContainer');
@@ -184,7 +184,7 @@ updateTimer();
 // ========
 // PLAYER
 // ========
-const AUDIO_SRC = '../Mac Miller - Congratulations feat. Bilal (No Intro) - J.mp3'; 
+const AUDIO_SRC = 'Miller - Congratulations feat. Bilal (No Intro) - J.mp3'; 
 
 const playBtn = document.getElementById('playBtn');
 const playIcon = document.getElementById('playIcon');
