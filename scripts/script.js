@@ -5,10 +5,15 @@ const TARGET_DATE = new Date('2024-11-03T00:00:00');
 // ==========================================
 const photosArr = [
     "../img/amor/amor1.jpeg",
-    "../img/amor/amor2.jpeg",
+    "../img/amor/amor2.jpg",
     "../img/amor/amor3.jpeg",
     "../img/amor/amor4.jpeg",
     "../img/amor/amor5.jpeg",
+    "../img/amor/amor6.jpeg",
+    "../img/amor/amor7.jpg",
+    "../img/amor/amor8.jpg",
+    "../img/amor/amor9.jpg",
+    "../img/amor/amor10.jpg",
 ];
 
 const container = document.getElementById('carouselContainer');
