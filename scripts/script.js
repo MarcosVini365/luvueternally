@@ -184,7 +184,7 @@ updateTimer();
 // ========
 // PLAYER
 // ========
-const AUDIO_SRC = 'Miller - Congratulations feat. Bilal (No Intro) - J.mp3'; 
+const AUDIO_SRC = 'assets/Miller - Congratulations feat. Bilal (No Intro) - J.mp3'; 
 
 const playBtn = document.getElementById('playBtn');
 const playIcon = document.getElementById('playIcon');
@@ -226,7 +226,7 @@ function criarCoracao() {
   coracao.style.left = Math.random() * window.innerWidth + 'px';
   
   // Tamanho aleatório
-  const tamanho = Math.random() * 20 + 20;
+  const tamanho = Math.random() * 20 + 10;
   coracao.style.width = tamanho + 'px';
   coracao.style.height = tamanho + 'px';
   
